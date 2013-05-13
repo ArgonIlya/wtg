@@ -1,0 +1,12 @@
+<center>
+<% if @girl.actress %>
+  <h1><%= "Wrong. She's actress" %></h1>
+<% else %>
+  <h1><%= "Wrong. She's girl" %></h1>
+<% end %>
+<h2><%= @girl.name %></h2>
+<h2><%= @girl.about %></h2>
+<%= image_tag @girl.avatar.url(:medium) %>
+<p>
+<%= button_to "Next", { :action => "play" }, :method => :get, class: "btn btn-large btn-primary play-button"%>
+</center>

@@ -1,0 +1,24 @@
+<center>
+  <h1>New girl</h1>
+  <%= form_for :girl, :url => { :action => :create } do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :about %><br>
+      <%= f.text_field :about %>
+    </p>
+   
+    <p>
+      <%= f.label :avatar %><br>
+      <%= f.file_field :avatar %>
+    </p>
+    <p>
+    	<%= f.check_box :actress %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+</center>
