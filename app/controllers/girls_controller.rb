@@ -7,32 +7,40 @@ class GirlsController < ApplicationController
   def play
   	offset = rand(Girl.count)
 	  @girl = Girl.first(:offset => offset)
+    offset = rand(@girl.photos.count)
+
+    @photo = @girl.photos.first(:offset => offset)
+    session[:photo_offset] = offset
   end
 
-  def click_girl
+  def click
   	@girl = Girl.find(params[:id])
-  	if (@girl.actress)
-  		redirect_to :action => :lose, :id => @girl.id
+  	if ((@girl.actress == false && params[:type] == "girl") || (@girl.actress == true && params[:type] == "actress"))
+      if signed_in?
+        c_user = User.find_by_remember_token(cookies[:remember_token])
+        new_right = c_user.right + 1;
+        c_user.update_attribute(:right, new_right)
+      end
+      redirect_to :action => :answer, :id => @girl.id, :win => "true"
   	else
-  		redirect_to :action => :win, :id => @girl.id
+      if signed_in?
+        c_user = User.find_by_remember_token(cookies[:remember_token])
+        new_wrong = c_user.wrong + 1;
+        c_user.update_attribute(:wrong, new_wrong)
+      end
+      redirect_to :action => :answer, :id => @girl.id, :win => "false"
   	end
   end
 
-  def click_actress
-  	@girl = Girl.find(params[:id])
-  	if (@girl.actress)
-  		redirect_to :action => :win, :id => @girl.id
-  	else
-  		redirect_to :action => :lose, :id => @girl.id
-  	end
-  end
-
-  def win
+  def answer
     @girl = Girl.find(params[:id])
-  end
+    if params[:win] == "true" 
+      @win = true 
+    else 
+      @win = false 
+    end
 
-  def lose
-    @girl = Girl.find(params[:id])
+    @photo = @girl.photos.first(:offset => session[:photo_offset])
   end
 
 

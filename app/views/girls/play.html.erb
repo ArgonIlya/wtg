@@ -1,9 +1,13 @@
 <% if @girl %>
 <center>
-<%= image_tag @girl.avatar.url(:medium) %>
+
+<% if @photo && @photo.file %>
+<%= image_tag @photo.file.cdn_url("scale_crop/200x200") %>
+<% end %>
+
 <p>
-<%= button_to "Girl", { :action => "click_girl", :id => @girl.id }, class: "btn btn-large btn-primary play-button" %>
-<%= button_to "Actress", { :action => "click_actress", :id => @girl.id }, class: "btn btn-large btn-primary play-button" %>
+<%= button_to "Girl", { :action => "click", :id => @girl.id, :type => "girl" }, class: "btn btn-large btn-primary play-button" %>
+<%= button_to "Actress", { :action => "click", :id => @girl.id, :type => "actress" }, class: "btn btn-large btn-primary play-button" %>
 </center>
 <% else %>
 <%= "Database don't have any girl" %>

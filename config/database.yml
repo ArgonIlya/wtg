@@ -1,17 +1,17 @@
 development:
   adapter: postgresql
-  database: wtg1
+  database: wtg_development
   host: localhost
   encoding: utf8
 
 test:
   adapter: postgresql
-  database: wtg2
+  database: wtg_test
   host: localhost
   encoding: utf8
 
 production:
   adapter: postgresql
   host: localhost
-  database: wtg
+  database: wtg_production
   encoding: utf8

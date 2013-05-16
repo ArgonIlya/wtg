@@ -2,6 +2,7 @@ Wtg::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
+
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
@@ -14,14 +15,14 @@ Wtg::Application.routes.draw do
   get "girls/play"
   post "girls/create"
   get "girls/girls/:id" => "girls#show"
-  post "girls/click_girl"
-  post "girls/click_actress"
-  get "girls/win"
-  get "girls/lose"
+  post "girls/click"
+  get "girls/answer"
 
   namespace :admin do
     root :to => "girls#index"
-    resources :girls
+    resources :girls do
+      resources :photos
+    end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

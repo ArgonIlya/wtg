@@ -8,16 +8,18 @@ class Admin::GirlsController < Admin::ApplicationController
 
   def new
     @girl = Girl.new
+    3.times { @girl.photos.build }
   end
   
   def create
     @girl = Girl.new(params[:girl]) 
-  @girl.save
-  redirect_to :action => :show, :id => @girl.id
+    @girl.save
+    redirect_to :action => :show, :id => @girl.id
   end
 
   def show
     @girl = Girl.find(params[:id])
   end
+
 
 end

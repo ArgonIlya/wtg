@@ -5,11 +5,16 @@ gem 'pg', '0.12.2'
 gem 'paperclip'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'uploadcare-rails'
+gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
 
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+group :development do
+	gem 'better_errors'
+  gem 'binding_of_caller' 
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
