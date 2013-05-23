@@ -1,6 +1,6 @@
 <h2><%= @girl.name %></h2>
-
 <h2><%= @girl.about %></h2>
+
 <% if @girl.actress %>
   <h2><%= "Actress" %></h2>
 <% else %>
@@ -8,7 +8,5 @@
 <% end %>
 
 <% @girl.photos.each do |photo| %>
-
     <%= image_tag photo.file.cdn_url("scale_crop/200x200") %>
-
 <% end %>

@@ -1,0 +1,38 @@
+<%= form_for [:admin, girl], :html => { :multipart => true } do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :about %>
+  <%= f.text_field :about %>
+
+  <%= f.label :actress %>
+	<%= f.check_box :actress %>
+
+
+	<div class="line">
+		<h4>File Upload</h4>
+
+		<%= f.fields_for :photos do |photo_f| %>
+			<% if photo_f.object.new_record? %>
+	        	<%= photo_f.label :file %>
+	        	<%= photo_f.uploadcare_uploader_field :file %>
+			<% end %>
+		<% end %>
+	</div>
+	
+	<div class="line">
+		<h4>Show Old Images</h4>
+		
+		<%= f.fields_for :photos do |photo_f| %>
+
+			<% unless photo_f.object.new_record? %>
+				<%= image_tag photo_f.object.file.cdn_url("scale_crop/200x200") %>
+				<%= photo_f.check_box '_destroy' %>
+			<% end %>
+		<% end %>
+	</div>
+
+  <div class="line"><%= f.submit "Save", :class => "form-btn" %></div>
+
+<% end %>

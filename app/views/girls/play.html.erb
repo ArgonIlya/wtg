@@ -1,14 +1,14 @@
-<% if @girl %>
 <center>
+	<% if @girl %>
+  	<% if @photo && @photo.file %>
+  		<%= image_tag @photo.file.cdn_url("scale_crop/200x200") %>
+  	<% end %>
+    <div class="line">
+  	 <%= button_to "Girl", { :action => "click", :id => @girl.id, :type => "girl" }, class: "btn btn-large btn-primary play-button" %>
+  	 <%= button_to "Actress", { :action => "click", :id => @girl.id, :type => "actress" }, class: "btn btn-large btn-primary play-button" %>
+    </div>
+	<% else %>
+		<%= "Database don't have any girl" %>
+	<% end %>
 
-<% if @photo && @photo.file %>
-<%= image_tag @photo.file.cdn_url("scale_crop/200x200") %>
-<% end %>
-
-<p>
-<%= button_to "Girl", { :action => "click", :id => @girl.id, :type => "girl" }, class: "btn btn-large btn-primary play-button" %>
-<%= button_to "Actress", { :action => "click", :id => @girl.id, :type => "actress" }, class: "btn btn-large btn-primary play-button" %>
 </center>
-<% else %>
-<%= "Database don't have any girl" %>
-<% end %>

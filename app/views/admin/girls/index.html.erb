@@ -1,11 +1,26 @@
 <h1>Admin#main</h1>
 
 <% @girls.each do |girl| %>
-      <li>
-      		<p><%= girl.name %></p>
+  <li>
 
-            <p><%= girl.name %></p>
-            <p><%= girl.actress %></p>
+        <div>
+          <%= link_to girl.name, admin_girl_path(girl.id) %>
+          <%= girl.actress %>
+        </div>
+        
+        <% if girl.photos %>
+          <% girl.photos.each do |photo| %>
+              <%= image_tag photo.file.cdn_url("scale_crop/100x100") %>
+          <% end %>
+        <% end %>
 
-      </li>
-    <% end %>
+        <div>
+          <%= link_to "Edit", edit_admin_girl_path(girl) %>
+          <%= link_to "Delete", admin_girl_path(girl.id), :confirm => 'Are you sure?', :method => :delete %>
+        </div>
+
+  </li>
+<% end %>
+
+
+

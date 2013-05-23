@@ -3,6 +3,7 @@ Wtg::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
 
+
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
@@ -10,16 +11,22 @@ Wtg::Application.routes.draw do
 
   get "girls/index"
 
-  get "girls/new"
-  get "girls/show"
+
+
   get "girls/play"
-  post "girls/create"
+
   get "girls/girls/:id" => "girls#show"
   post "girls/click"
   get "girls/answer"
 
+
+
+  #match 'admin' => 'admin/dashboard#home', :as => :admin
+
+
   namespace :admin do
     root :to => "girls#index"
+
     resources :girls do
       resources :photos
     end

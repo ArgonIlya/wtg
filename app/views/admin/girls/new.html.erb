@@ -1,21 +1,4 @@
 <center>
   <h1>New girl</h1>
-  <%= form_for @girl, :url => { :action => :create }, :html => { :multipart => true } do |f| %>
-
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-
-      <%= f.label :about %><br>
-      <%= f.text_field :about %>
-
-    	<p><%= f.check_box :actress %>
-
-        <%= f.fields_for :photos do |photo_f| %>
-            <%= photo_f.label :file %>
-            <%= photo_f.uploadcare_uploader_field :file %>
-        <% end %>
-
-    <p><%= f.submit %>
-
-  <% end %>
+	<%= render 'form', :girl => @girl %>
 </center>

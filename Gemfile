@@ -7,7 +7,7 @@ gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'uploadcare-rails'
 gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
-
+gem 'nifty-generators'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
