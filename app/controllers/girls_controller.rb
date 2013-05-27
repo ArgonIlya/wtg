@@ -7,7 +7,7 @@ class GirlsController < ApplicationController
   def play
   	offset = rand(Girl.count)
 	  @girl = Girl.first(:offset => offset)
-    if @girls
+    if @girl
       offset = rand(@girl.photos.count)
 
       @photo = @girl.photos.first(:offset => offset)
