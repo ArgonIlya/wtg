@@ -1,7 +1,7 @@
 <center>
 	<% if @girl != nil %>
   	<% if @photo && @photo.file %>
-  		<%= image_tag @photo.file.cdn_url("scale_crop/200x200") %>
+  		<%= image_tag @photo.file.cdn_url("scale_crop/400x300") %>
   	<% end %>
     <div class="line">
   	 <%= button_to "Girl", { :action => "click", :id => @girl.id, :type => "girl" }, class: "btn btn-large btn-primary play-button" %>
