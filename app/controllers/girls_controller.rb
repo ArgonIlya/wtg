@@ -17,16 +17,14 @@ class GirlsController < ApplicationController
   	@girl = Girl.find(params[:id])
   	if ((@girl.actress == false && params[:type] == "girl") || (@girl.actress == true && params[:type] == "actress"))
       if signed_in?
-        c_user = User.find_by_remember_token(cookies[:remember_token])
-        new_right = c_user.right + 1;
-        c_user.update_attribute(:right, new_right)
+        new_right = current_user.right + 1;
+        current_user.update_attribute(:right, new_right)
       end
       redirect_to :action => :answer, :id => @girl.id, :win => "true"
   	else
       if signed_in?
-        c_user = User.find_by_remember_token(cookies[:remember_token])
-        new_wrong = c_user.wrong + 1;
-        c_user.update_attribute(:wrong, new_wrong)
+        new_wrong = current_user.wrong + 1;
+        current_user.update_attribute(:wrong, new_wrong)
       end
       redirect_to :action => :answer, :id => @girl.id, :win => "false"
   	end

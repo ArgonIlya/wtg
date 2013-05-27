@@ -8,6 +8,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'uploadcare-rails'
 gem "nested_form", :git => 'https://github.com/ryanb/nested_form.git'
 gem 'nifty-generators'
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
