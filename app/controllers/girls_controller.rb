@@ -7,10 +7,12 @@ class GirlsController < ApplicationController
   def play
   	offset = rand(Girl.count)
 	  @girl = Girl.first(:offset => offset)
-    offset = rand(@girl.photos.count)
+    if @girls
+      offset = rand(@girl.photos.count)
 
-    @photo = @girl.photos.first(:offset => offset)
-    session[:photo_offset] = offset
+      @photo = @girl.photos.first(:offset => offset)
+      session[:photo_offset] = offset
+    end
   end
 
   def click
