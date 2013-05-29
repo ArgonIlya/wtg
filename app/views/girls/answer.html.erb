@@ -1,11 +1,11 @@
 <center>
 
 	<% if @girl.actress == true && @win == true %>
-	  <h1><%= "Right! She's actress" %></h1>
+	  <h1><%= "Right! She's porn actress" %></h1>
 	<% elsif  @girl.actress == false && @win == true %>
 	  <h1><%= "Right! She's girl" %></h1>
 	<% elsif  @girl.actress == true && @win == false %>
-	  <h1><%= "Wrong. She's actress" %></h1>
+	  <h1><%= "Wrong. She's porn actress" %></h1>
 	<% elsif  @girl.actress == false && @win == false %>
 	  <h1><%= "Wrong. She's girl" %></h1>
 	<% end %>
@@ -14,7 +14,7 @@
 <h2><%= @girl.about %></h2>
 
 <% if @photo && @photo.file %>
-<%= image_tag @photo.file.cdn_url("scale_crop/200x200") %>
+<%= image_tag @photo.file.cdn_url("scale_crop/280x210") %>
 <% end %>
 <p>
 <%= button_to "Next", { :action => "play" }, :method => :get, class: "btn btn-large btn-primary play-button" %>

@@ -20,10 +20,10 @@
 			<% end %>
 		<% end %>
 	</div>
-	
+
 	<div class="line">
 		<h4>Show Old Images</h4>
-		
+
 		<%= f.fields_for :photos do |photo_f| %>
 
 			<% unless photo_f.object.new_record? %>
