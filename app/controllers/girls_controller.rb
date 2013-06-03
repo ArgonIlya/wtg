@@ -22,12 +22,14 @@ class GirlsController < ApplicationController
         new_right = current_user.right + 1;
         current_user.update_attribute(:right, new_right)
       end
+      @girl.update_attribute(:right, @girl.right + 1)
       redirect_to :action => :answer, :id => @girl.id, :win => "true"
   	else
       if signed_in?
         new_wrong = current_user.wrong + 1;
         current_user.update_attribute(:wrong, new_wrong)
       end
+      @girl.update_attribute(:wrong, @girl.wrong + 1)
       redirect_to :action => :answer, :id => @girl.id, :win => "false"
   	end
   end
@@ -39,7 +41,7 @@ class GirlsController < ApplicationController
     else 
       @win = false 
     end
-
+    @answer_float = (@girl.right * 100 / (@girl.right + @girl.wrong))
     @photo = @girl.photos.first(:offset => session[:photo_offset])
   end
 

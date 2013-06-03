@@ -14,8 +14,9 @@
 <h2><%= @girl.about %></h2>
 
 <% if @photo && @photo.file %>
-<%= image_tag @photo.file.cdn_url("scale_crop/280x210") %>
+<%= image_tag @photo.file.cdn_url("scale_crop/210x280") %>
 <% end %>
 <p>
 <%= button_to "Next", { :action => "play" }, :method => :get, class: "btn btn-large btn-primary play-button" %>
+<h6><%=  @answer_float %>% of people know that girl</h6>
 </center>

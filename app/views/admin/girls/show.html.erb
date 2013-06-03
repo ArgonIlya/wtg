@@ -7,6 +7,9 @@
   <h2><%= "Girl" %></h2>
 <% end %>
 
+<div><%=  @answer_float %>% right answers</div>
+
+
 <% @girl.photos.each do |photo| %>
     <%= image_tag photo.file.cdn_url("scale_crop/200x200") %>
 <% end %>

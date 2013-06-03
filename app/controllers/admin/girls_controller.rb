@@ -22,6 +22,7 @@ class Admin::GirlsController < Admin::ApplicationController
 
   def show
     @girl = Girl.find(params[:id])
+    @answer_float = (@girl.right * 1.0 / (@girl.right + @girl.wrong))
   end
 
   def edit
