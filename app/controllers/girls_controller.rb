@@ -17,20 +17,32 @@ class GirlsController < ApplicationController
 
   def click
   	@girl = Girl.find(params[:id])
+    @win = false
   	if ((@girl.actress == false && params[:type] == "girl") || (@girl.actress == true && params[:type] == "actress"))
       if signed_in?
-        new_right = current_user.right + 1;
+        new_right = current_user.right + 1;        
         current_user.update_attribute(:right, new_right)
       end
       @girl.update_attribute(:right, @girl.right + 1)
-      redirect_to :action => :answer, :id => @girl.id, :win => "true"
+      @win = true
+      @answer_float = (@girl.right * 100 / (@girl.right + @girl.wrong))
+      respond_to do |format|
+        format.html { redirect_to :action => :answer, :id => @girl.id, :win => "true" }
+        format.js
+      end
+      
   	else
       if signed_in?
-        new_wrong = current_user.wrong + 1;
+        new_wrong = current_user.wrong + 1;        
         current_user.update_attribute(:wrong, new_wrong)
       end
       @girl.update_attribute(:wrong, @girl.wrong + 1)
-      redirect_to :action => :answer, :id => @girl.id, :win => "false"
+      @win = false
+      @answer_float = (@girl.right * 100 / (@girl.right + @girl.wrong))
+      respond_to do |format|
+        format.html { redirect_to :action => :answer, :id => @girl.id, :win => "false" }
+        format.js 
+      end
   	end
   end
 

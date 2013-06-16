@@ -8,6 +8,7 @@ Wtg::Application.routes.draw do
 
 
   get "girls/play"
+  get "girls/click"
 
   get "girls/girls/:id" => "girls#show"
   post "girls/click"

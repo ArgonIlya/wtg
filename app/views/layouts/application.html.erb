@@ -41,7 +41,9 @@
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       <% end %>
+      <div id='ololo'>
       <%= yield %>
+    </div>
     </div>
   </body>
 </html>
