@@ -18,7 +18,7 @@ class GirlsController < ApplicationController
   def click
   	@girl = Girl.find(params[:id])
     @win = false
-  	if ((@girl.actress == false && params[:type] == "girl") || (@girl.actress == true && params[:type] == "actress"))
+  	if ((@girl.actress == false && params[:type] == 'false') || (@girl.actress == true && params[:type] == 'true'))
       if signed_in?
         new_right = current_user.right + 1;        
         current_user.update_attribute(:right, new_right)
