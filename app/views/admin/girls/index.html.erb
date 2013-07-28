@@ -1,26 +1,33 @@
 <h1>Admin#main</h1>
-
-<% @girls.each do |girl| %>
-  <li>
-
-        <div>
-          <%= link_to girl.name, admin_girl_path(girl.id) %>
-          <%= girl.actress %>
-        </div>
-        
-        <% if girl.photos %>
-          <% girl.photos.each do |photo| %>
-              <%= image_tag photo.file.cdn_url("scale_crop/100x100") %>
+<table style="width:100%" class="table table-striped">
+  <tbody>
+    <% @girls.each do |girl| %>
+      <tr>
+          <td>
+            <h5>
+            <% if (girl.actress) %>
+              <%= link_to girl.name, admin_girl_path(girl.id), style: "color:red"%>
+            <% else %>
+              <%= link_to girl.name, admin_girl_path(girl.id), style: "color:blue" %>
+            <% end %>
+            </h5>
+          </td>
+          <td>
+          <% if girl.photos %>
+            <% girl.photos.each do |photo| %>
+                <%= image_tag photo.file.cdn_url("scale_crop/100x100") %>
+            <% end %>
           <% end %>
-        <% end %>
+          <td>
 
-        <div>
-          <%= link_to "Edit", edit_admin_girl_path(girl) %>
-          <%= link_to "Delete", admin_girl_path(girl.id), :confirm => 'Are you sure?', :method => :delete %>
-        </div>
-
-  </li>
-<% end %>
+          <td>
+            <%= link_to "Edit", edit_admin_girl_path(girl), style: "color:orange" %>
+            <%= link_to "Delete", admin_girl_path(girl.id), :confirm => 'Are you sure?', :method => :delete, style: "color:red" %>
+          </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
 
