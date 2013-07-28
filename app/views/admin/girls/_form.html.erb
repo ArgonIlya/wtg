@@ -27,7 +27,7 @@
 		<%= f.fields_for :photos do |photo_f| %>
 
 			<% unless photo_f.object.new_record? %>
-				<%= image_tag photo_f.object.file.cdn_url("scale_crop/200x200") %>
+				<%= image_tag photo_f.object.file.cdn_url("scale_crop/200x200/center/") %>
 				<%= photo_f.check_box '_destroy' %>
 			<% end %>
 		<% end %>

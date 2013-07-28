@@ -15,7 +15,7 @@
           <td>
           <% if girl.photos %>
             <% girl.photos.each do |photo| %>
-                <%= image_tag photo.file.cdn_url("scale_crop/100x100") %>
+                <%= image_tag photo.file.cdn_url("scale_crop/100x100/center/") %>
             <% end %>
           <% end %>
           <td>
