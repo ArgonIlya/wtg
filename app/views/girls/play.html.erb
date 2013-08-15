@@ -1,10 +1,10 @@
 <center>
-  
+  <div style="width: 670px;">
 	<% if @girl != nil %>
   	<% if @photo && @photo.file %>
-  		<%= image_tag @photo.file.cdn_url("scale_crop/300x400/center/") %>
+      <div style="float: left; width:300px; height:400px; background-image: url(<%= @photo.file.cdn_url("scale_crop/300x400/center/") %>)"></div>
   	<% end %>
-    <div id="ex">
+    <div id="answer-buttons" style="margin-left: 20px; padding-top: 40px; width: 350px; float: left;">
       <h1>Porn actress?</h1>
   	 <%= button_to "Yes", { :action => "click", :id => @girl.id, :type => 'true' }, :method => :get, :remote => true, class: "btn btn-large btn-primary play-button" %>
   	 <%= button_to "No", { :action => "click", :id => @girl.id, :type => 'false' }, :method => :get, :remote => true, class: "btn btn-large btn-primary play-button" %>
@@ -12,6 +12,5 @@
 	<% else %>
 		<%= "Database don't have any girl" %>
 	<% end %>
-
-
+</div>
 </center>
