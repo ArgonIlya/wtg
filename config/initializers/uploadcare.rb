@@ -3,7 +3,7 @@ Uploadcare::Rails::Engine.configure do
   config.uploadcare.private_key = '40df58381eee8c9ce433'
   #config.uploadcare.public_key = 'demopublickey'
   #config.uploadcare.private_key = 'demoprivatekey'
-  config.uploadcare.widget_version = '0.8'
+  config.uploadcare.widget_version = '0.10.1'
 
 
   # Set the following to true if you don't want to propagate exceptions
