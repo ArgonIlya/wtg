@@ -1,13 +1,17 @@
 <center>
 
 	<% if @girl.actress == true && @win == true %>
-	  <h1 class='green'><%= "Right! She's porn actress" %></h1>
+	  <h1 class='green'><%= "Right!"%></h1>
+	  <h1 class='green' style='font-size: 30px; margin-top: -16px;'><%= "Porn actress" %></h1>
 	<% elsif  @girl.actress == false && @win == true %>
-	  <h1 class='green'><%= "Right! She isn't porn actress" %></h1>
+	  <h1 class='green'><%= "Right!"%></h1>
+	  <h1 class='green' style='font-size: 30px; margin-top: -16px;'><%= "Not porn actress" %></h1>
 	<% elsif  @girl.actress == true && @win == false %>
-	  <h1 class='red'><%= "Wrong. She's porn actress" %></h1>
+	  <h1 class='red'><%= "Wrong"%></h1>
+	  <h1 class='red' style='font-size: 30px; margin-top: -16px;'><%= "Porn actress" %></h1>
 	<% elsif  @girl.actress == false && @win == false %>
-	  <h1 class='red'><%= "Wrong. She isn't porn actress" %></h1>
+	  <h1 class='red'><%= "Wrong"%></h1>
+	  <h1 class='red' style='font-size: 30px; margin-top: -16px;'><%= "Not porn actress" %></h1>
 	<% end %>
 
 	<h2><%= @girl.name %></h2>
