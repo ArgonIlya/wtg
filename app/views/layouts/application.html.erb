@@ -15,7 +15,8 @@
           <%= link_to "WTG", :root, id: "logo" %>
           <div id="add-logo">Who's That Girl?</div>
           <nav>
-            <ul class="nav pull-right">
+            <ul class="nav pull-right" style="color: white;">
+              <%= link_to "Мы вконтакте!", 'http://vk.com/wtg_su', id: "vk-link" %>
               <% if user_signed_in? %>
                 <% if current_user.email == 'ilya@gmail.com' %>
                   <li><%= link_to "Admin", admin_girls_path %></li>

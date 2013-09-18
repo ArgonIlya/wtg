@@ -84,11 +84,36 @@ p {
   padding-top: 17px;
   font-size: 12px;
   color: #fff;
+  float: left;
 }
+
+a:link {
+    color: #0000d0; /* Цвет ссылок */
+   }
+   a:visited {
+    color: #900060; /* Цвет посещенных ссылок */
+   }
 
 #logo:hover {
   color: #fff;
   text-decoration: none;
+}
+
+#vk-link {
+  float: left;
+  margin-right: 20px;
+  margin-top: 4px;
+  padding-left: 34px;
+  padding-bottom: 6px;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  background-image: url('vk.png');
+  background-repeat: no-repeat;
 }
 
 
