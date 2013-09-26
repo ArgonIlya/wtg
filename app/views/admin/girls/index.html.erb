@@ -11,11 +11,13 @@
               <%= link_to girl.name, admin_girl_path(girl.id), style: "color:blue" %>
             <% end %>
             </h5>
+            <%= girl.right + girl.wrong %> answ.</br>
+            <%= girl.right * 1.0 / (girl.right + girl.wrong) %>%</br>
           </td>
           <td>
           <% if girl.photos %>
             <% girl.photos.each do |photo| %>
-                <%= image_tag photo.file.cdn_url("scale_crop/100x100/center/") %>
+                <%= image_tag photo.file.cdn_url("scale_crop/80x80/center/") %>
             <% end %>
           <% end %>
           <td>
