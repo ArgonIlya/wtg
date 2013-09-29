@@ -3,7 +3,7 @@ class Admin::GirlsController < Admin::ApplicationController
 
 
   def index
-    @girls = Girl.all
+    @girls = Girl.all.order_by_id
   end
 
   def new
@@ -43,5 +43,9 @@ class Admin::GirlsController < Admin::ApplicationController
     @girl = Girl.find(params[:id])
     @girl.destroy
     redirect_to admin_girls_url, :notice => "Successfully destroyed product."
+  end
+
+  def update_top
+    @girls = Girl.all
   end
 end
