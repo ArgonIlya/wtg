@@ -11,16 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530091803) do
+ActiveRecord::Schema.define(:version => 20130929155126) do
 
   create_table "girls", :force => true do |t|
     t.string   "name"
     t.string   "about"
     t.boolean  "actress"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-    t.integer  "right",      :default => 0
-    t.integer  "wrong",      :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "right",       :default => 0
+    t.integer  "wrong",       :default => 0
+    t.integer  "top_all"
+    t.integer  "top_girls"
+    t.integer  "top_actress"
   end
 
   create_table "photos", :force => true do |t|

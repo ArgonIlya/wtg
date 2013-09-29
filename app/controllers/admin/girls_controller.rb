@@ -3,7 +3,7 @@ class Admin::GirlsController < Admin::ApplicationController
 
 
   def index
-    @girls = Girl.all.order_by_id
+    @girls = Girl.all
   end
 
   def new
@@ -47,5 +47,17 @@ class Admin::GirlsController < Admin::ApplicationController
 
   def update_top
     @girls = Girl.all
+    top = []
+    @girls.each do |girl|
+      top.push({id: girl.id, ratio: (girl.right * 1.0 / (girl.right + girl.wrong))})
+    end
+    top.sort_by{|t| t[:ratio]}.reverse!
+    top.each_with_index do |girl, index|
+      Girl.find(girl[:id]).update_attribute(:top_all, index + 1)
+    end
+    @girls.sort_by!{|g| g.top_all}
+    render :action => 'index'
   end
+
+
 end

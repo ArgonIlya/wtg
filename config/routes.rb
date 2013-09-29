@@ -21,7 +21,7 @@ Wtg::Application.routes.draw do
 
   namespace :admin do
     root :to => "girls#index"
-
+    get "girls/update_top" =>"girls#update_top"
     resources :girls do
       resources :photos
     end
