@@ -49,7 +49,9 @@ class Admin::GirlsController < Admin::ApplicationController
     @girls = Girl.all
     top = []
     @girls.each do |girl|
-      top.push({id: girl.id, ratio: (girl.right * 1.0 / (girl.right + girl.wrong))})
+      if ((girl.right + girl.wrong) > 100)
+        top.push({id: girl.id, ratio: (girl.right * 1.0 / (girl.right + girl.wrong))})
+      end
     end
     top.sort_by{|t| t[:ratio]}.reverse!
     top.each_with_index do |girl, index|
