@@ -1,5 +1,5 @@
 <center>
-
+<div class="answer-block">
 	<% if @girl.actress == true && @win == true %>
 	  <h1 class='green'><%= "Right!"%></h1>
 	  <h1 class='green' style='font-size: 30px; margin-top: -16px;'><%= "Porn actress" %></h1>
@@ -14,13 +14,15 @@
 	  <h1 class='red' style='font-size: 30px; margin-top: -16px;'><%= "Not porn actress" %></h1>
 	<% end %>
 
-	<h2><%= @girl.name %></h2>
-	<h2><%= @girl.about %></h2>
-
+	<h4 style="color: black"><%= @girl.name %></h4>
+	<h5 style="color: black"><%= @girl.about %></h5>
+	<div style="bottom: 0px; position: absolute; left: 0; right: 0;">
 	<% if @photo && @photo.file %>
 	<%= image_tag @photo.file.cdn_url("scale_crop/210x280") %>
 	<% end %>
 	<p>
 	<%= button_to "Next", { :action => "play" }, :method => :get, class: "btn btn-large btn-primary play-button" %>
 	<h6><%=  @answer_float %>% of people know that girl</h6>
+</div>
+</div>
 </center>
