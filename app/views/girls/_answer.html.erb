@@ -14,8 +14,8 @@
 	  <h1 class='red' style='font-size: 30px; margin-top: -16px;'><%= "Not porn actress" %></h1>
 	<% end %>
 
-	<h4 style="color: black"><%= @girl.name %></h4>
-	<h5 style="color: black"><%= @girl.about %></h5>
+	<h4 style=""><%= @girl.name %></h4>
+	<h5 style=""><%= @girl.about %></h5>
 	<div style="bottom: 0px; position: absolute; left: 0; right: 0;">
 	<% if @photo && @photo.file %>
 	<%= image_tag @photo.file.cdn_url("scale_crop/210x280") %>

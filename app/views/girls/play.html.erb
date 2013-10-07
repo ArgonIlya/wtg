@@ -1,11 +1,15 @@
 <center>
-  <div style="width: 670px;">
-	<% if @girl != nil %>
-  <div style="float: left; width: 300px; height: 440px;">
-  	<% if @photo && @photo.file %>
-      <div style="float: left; width:300px; height:400px; background-image: url(<%= @photo.file.cdn_url("scale_crop/300x400/center/") %>)"></div>
-  	<% end %>
-    <div id="top-block"></div>
+<div id="girl-play-block">
+<% if @girl != nil %>
+<div style="float: left; width: 300px; height: 440px;">
+	
+    <div style="box-shadow: 0 0 10px rgba(0,0,0,0.7); left; width:300px; height:400px;">
+      <% if @photo && @photo.file %>
+      <div style="width:300px; height:400px; background-image: url(<%= @photo.file.cdn_url("scale_crop/300x400/center/") %>);"></div>
+      <% end %>
+    </div>
+	
+  <div id="top-block"></div>
   </div>
     <div id="answer-buttons" style="margin-left: 20px; padding-top: 60px; width: 350px; float: left;">
       <h1>Porn actress?</h1>
@@ -17,3 +21,19 @@
 	<% end %>
 </div>
 </center>
+
+<script type="text/javascript">
+  $(window).load(function(){
+      $("#girl-play-block").css("left", Math.max(30, $(window).width()/2 - 335));
+      $("#girl-play-block").css("top", Math.max(50, $(window).height()/2 - 220));
+      $("#girl-play-block").css("display", 'block');
+  });
+  $(window).scroll(function(){
+      $("#girl-play-block").css("left", Math.max(30, $(window).width()/2 - 335));
+      $("#girl-play-block").css("top", Math.max(50, $(window).height()/2 - 220));
+  });
+  $(window).resize(function(){
+      $("#girl-play-block").css("left", Math.max(30, $(window).width()/2 - 335));
+      $("#girl-play-block").css("top", Math.max(50, $(window).height()/2 - 220));
+  });
+</script>
