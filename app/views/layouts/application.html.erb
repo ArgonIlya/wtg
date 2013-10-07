@@ -3,6 +3,7 @@
   <head>
     <title><%= content_for?(:title)? content_for(:title) : "Who's That Girl?" %></title>
     <meta name="description" content="Check your intuition. Try to guess who are girls on puctures? Porn actress or not.">
+    <%= favicon_link_tag 'favicon.ico' %>
 
 
     <%= stylesheet_link_tag    "application", media: "all" %>
@@ -12,7 +13,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body id="bbb">
+  <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
