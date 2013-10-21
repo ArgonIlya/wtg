@@ -1,10 +1,18 @@
 <center>
 <div class="answer-block">
 	<% if @girl.actress == true && @win == true %>
-	  <h1 class='green'><%= "Right!"%></h1>
+		<% if @rights && @rights > 1 %>
+	  	<h1 class='green'><%= "Right! x" + @rights.to_s %></h1>
+	  <% else %>
+	  	<h1 class='green'><%= "Right!"%></h1>
+	  <% end %>
 	  <h1 class='green' style='font-size: 30px; margin-top: -16px;'><%= "Porn actress" %></h1>
 	<% elsif  @girl.actress == false && @win == true %>
-	  <h1 class='green'><%= "Right!"%></h1>
+	  <% if @rights && @rights > 1 %>
+	  	<h1 class='green'><%= "Right! x" + @rights.to_s %></h1>
+	  <% else %>
+	  	<h1 class='green'><%= "Right!"%></h1>
+	  <% end %>
 	  <h1 class='green' style='font-size: 30px; margin-top: -16px;'><%= "Not porn actress" %></h1>
 	<% elsif  @girl.actress == true && @win == false %>
 	  <h1 class='red'><%= "Wrong"%></h1>

@@ -25,7 +25,13 @@ class GirlsController < ApplicationController
       end
       @girl.update_attribute(:right, @girl.right + 1)
       @win = true
+      if session[:rights]
+        session[:rights] = session[:rights] + 1
+      else
+        session[:rights] = 1
+      end
       @answer_float = (@girl.right * 100 / (@girl.right + @girl.wrong))
+      @rights = session[:rights]
       respond_to do |format|
         format.html { redirect_to :action => :answer, :id => @girl.id, :win => "true" }
         format.js
@@ -38,7 +44,9 @@ class GirlsController < ApplicationController
       end
       @girl.update_attribute(:wrong, @girl.wrong + 1)
       @win = false
+      session[:rights] = 0
       @answer_float = (@girl.right * 100 / (@girl.right + @girl.wrong))
+      @rights = session[:rights]
       respond_to do |format|
         format.html { redirect_to :action => :answer, :id => @girl.id, :win => "false" }
         format.js 
@@ -48,6 +56,7 @@ class GirlsController < ApplicationController
 
   def answer
     @girl = Girl.find(params[:id])
+    @rights = session[:rights] || 0
     if params[:win] == "true" 
       @win = true 
     else 
